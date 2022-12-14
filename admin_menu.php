@@ -5,7 +5,7 @@
                 <a href="dashboard.php" class="logo">
                     <img src="assets/img/logo-small.png" alt="Logo">
                 </a>
-                <a href="dashboard.php" class="logo logo-small">
+                <a href="admin_dashboard.php" class="logo logo-small">
                     <img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
                 </a>
             </div>
@@ -46,17 +46,16 @@
                         </li>
                        
                        
-                        <li class="submenu">
-                            <a href="#"><i class="fas fa-cogs"></i> <span>SETTINGS</span> <span class="menu-arrow"></span></a>
-                            <ul>
-                                <li><a href="patient_details.php">Update Patient Profile</a></li>
-                                <li><a href="search-usf.php">Update Surgery Profiles</a></li>
-                               
-                            </ul>
-                        </li>
+                       
 
                     </ul>
                 </div>
             </div>
         </div>
+<!-- Footer -->
+				<!-- <footer>
+					<p>Copyright © 2022 Health 'N' Wealth.</p>					
+				</footer> -->
+				<!-- /Footer -->
+
         <!-- /Sidebar -->

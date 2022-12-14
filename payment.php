@@ -25,24 +25,7 @@ if(isset($_POST['register']))
         echo "<script>alert('PAYMENT FAILED!!!')</script>";
         echo "<script>document.location='payment.php'</script>";
     }
-    // $lname=$_POST['lname'];
-    // $age=$_POST['age'];
-    // $phn1=$_POST['phn'];
-    // $phn=(int)$phn1;
-   
-    // $batch=$_POST['bat'];
-
-	// $query = "INSERT INTO `enrollement_details`(`eid`, `first_name`, `last_name`, `age`, `phone_number`) VALUES ('$eid','$fname','$lname','$age','$phn')";
-	//   $run = mysqli_query($con, $query);
-    //   if($run){
-    //     $query1 = "INSERT INTO `batch_status`(`eid`, `bid`, `counter`) VALUES ('$eid','$batch','0')";
-    //     $run1 = mysqli_query($con, $query1);
-    //     if($run1){
-    //    }
-	//      }
-    //   else{
-    //     echo" <script>document.location=''</script>";
-    //   }
+    
 }
 
 ?>
@@ -121,7 +104,7 @@ if(isset($_POST['register']))
 			
 				<!-- Footer -->
 				<!-- <footer>
-					<p>Copyright © 2020 Dreamguys.</p>					
+					<p>Copyright © 2022 Health 'N' Wealth.</p>					
 				</footer> -->
 				<!-- /Footer -->
 				

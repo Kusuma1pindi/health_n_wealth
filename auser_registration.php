@@ -2,13 +2,40 @@
 
 include 'connect.php';
 
-
+date_default_timezone_set("Asia/Kolkata");
+ $mon = date('F');
 
 date_default_timezone_set("Asia/Kolkata");
 $e = strval(date('Ymd'));
 $d  = substr($e,0,4).'-'.substr($e,4,2).'-'.substr($e,6,2);
 
 $eid = autoincemp($d);
+$pid = autoincemp1($d);
+function autoincemp1($date)
+{
+    $date =str_replace("-","",$date);
+   
+    global $value5;
+    global $con;
+    $query5 = "select pid from payment_details  where pid LIKE '%".$date."%' order by pid desc LIMIT 1";
+    $stmt5 = mysqli_query($con,$query5);
+    $rowcount5=$stmt5->num_rows;
+    if ($rowcount5 > 0) {
+    
+      $row5 = mysqli_fetch_assoc($stmt5);
+        $value5 = $row5['pid'];
+        $value5 = substr($value5,9);
+        $value5 = (int)$value5 + 1;
+        $value5 = $date.sprintf('%s',$value5);
+        $value55 = 'P'.$value5;
+        return $value55;
+    } else {
+        $str=$date;
+        $value5 = $str.sprintf('%s',1);
+        $value55 = 'P'.$value5;
+        return $value55;
+    }
+}
 
 function autoincemp($date)
 {
@@ -46,12 +73,17 @@ if(isset($_POST['register']))
    
     $batch=$_POST['bat'];
 
+
+
+
 	$query = "INSERT INTO `enrollement_details`(`eid`, `first_name`, `last_name`, `age`, `phone_number`) VALUES ('$eid','$fname','$lname','$age','$phn')";
 	  $run = mysqli_query($con, $query);
       if($run){
-        $query1 = "INSERT INTO `batch_status`(`eid`, `bid`, `counter`) VALUES ('$eid','$batch','0')";
+        $query1 = "INSERT INTO `batch_status`(`eid`, `bid`, `counter`) VALUES ('$eid','$batch','1')";
         $run1 = mysqli_query($con, $query1);
-        if($run1){
+        $que=mysqli_query($con,"INSERT INTO `payment_details`(`eid`, `pid`, `month`, `status`) VALUES ('$eid','$pid','$mon','0')");
+       
+        if($que && $run1){
        echo "<script>document.location='admin_dashboard.php'</script>";}
 	     }
       else{
@@ -155,10 +187,10 @@ if(isset($_POST['register']))
 													<div>
 														<select name="bat" class="form-control form-select"required>
 															<option value="">-- Select --</option>
-															<option value="Batch-1">6:00 AM- 7:00 AM</option>
-															<option value="Batch-2">7:00 AM - 8:00 AM</option>
-                                                            <option value="Batch-3">8:00 AM- 9:00 AM</option>
-															<option value="Batch-4">5:00 PM - 6:00 PM</option>
+															<option value="1">6:00 AM- 7:00 AM</option>
+															<option value="2">7:00 AM - 8:00 AM</option>
+                                                            <option value="3">8:00 AM- 9:00 AM</option>
+															<option value="4">5:00 PM - 6:00 PM</option>
 														</select>
 													</div>
 													<div class="invalid-feedback">
@@ -176,7 +208,7 @@ if(isset($_POST['register']))
 			
 				<!-- Footer -->
 				<!-- <footer>
-					<p>Copyright © 2020 Dreamguys.</p>					
+					<p>Copyright © 2022 Health 'N' Wealth.</p>					
 				</footer> -->
 				<!-- /Footer -->
 				
@@ -188,24 +220,7 @@ if(isset($_POST['register']))
 		<!-- /Main Wrapper -->
 		
 		
-		<!-- jQuery -->
-        <script src="assets/js/jquery-3.6.0.min.js"></script>
-		
-		<!-- Bootstrap Core JS -->
-        <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-		
-		<!-- Feather Icon JS -->
-        <script src="assets/js/feather.min.js"></script>
-		
-		<!-- Slimscroll JS -->
-        <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-		
-		<!-- Sweetalert 2 -->
-		<script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
-		<script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
-		
-		<!-- Custom JS -->
-		<script  src="assets/js/script.js"></script>
+
         <script>
 function myFunction() {
   const inpObj = document.getElementById("age");

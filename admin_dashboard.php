@@ -16,75 +16,6 @@ $query1    = "select count(eid) as in_count from payment_details where monthname
 $run1      = mysqli_query($con, $query1);
 $in_count = mysqli_fetch_assoc($run1);
 
-// $query2  = "select price from patient_billing_details";
-// $run2    = mysqli_query($con, $query2);
-// $revenue = 0;
-
-// while($amount  = mysqli_fetch_assoc($run2))
-// {
-//     $revenue = $revenue + $amount['price'];
-// }
-// $total_count = $out_count['ou']+$in_count['in_count'];
-
-// if(isset($_POST['bdaesubmit']))
-// {
-//     $pid = $_POST['bdae_pid'];
-
-//     if(empty($pid))
-//     {
-//         echo"<script>alert('Patient ID empty. Please enter PID!')</script>";
-//         echo" <script>document.location='dashboard.php'</script>";
-//     }
-//     else
-//     {
-//         $query = "select id from patient_primary_information where id='$pid'";
-//         $res = mysqli_query($con, $query);
-//         $res = mysqli_fetch_assoc($res);
-//         if($pid == $res['id'])
-//         {
-//             $query4 = "select token_id from patient_pregnancy_information where id='$pid' order by time desc limit 1";
-//             $res2 = mysqli_query($con, $query4);
-//             $res2 = mysqli_fetch_assoc($res2);
-//             $tid = $res2['token_id'];
-//             echo" <script>document.location='billing.php?pid=$pid&tid=$tid'</script>";
-//         }
-//         else
-//         {
-//             echo"<script>alert('Not an existing PATIENT!')</script>";
-//         }
-//     }
-
-// }
-
-// if(isset($_POST['gbsubmit']))
-// {
-//     $pid = $_POST['gb_pid'];
-
-//     if(empty($pid))
-//     {
-//         echo"<script>alert('Patient ID empty. Please enter PID!')</script>";
-//         echo" <script>document.location='dashboard.php'</script>";
-//     }
-//     else
-//     {
-//         $query = "select id from patient_primary_information where id='$pid'";
-//         $res = mysqli_query($con, $query);
-//         $res = mysqli_fetch_assoc($res);
-//         if($pid == $res['id'])
-//         {
-//             $query4 = "select token_id from patient_inpatient_form where patient_id='$pid' order by time desc limit 1";
-//             $res2 = mysqli_query($con, $query4);
-//             $res2 = mysqli_fetch_assoc($res2);
-//             $tid = $res2['token_id'];
-//             echo" <script>document.location='gb.php?pid=$pid&tid=$tid'</script>";
-//         }
-//         else
-//         {
-//             echo"<script>alert('Not an existing PATIENT!')</script>";
-//         }
-//     }
-
-// }
 
 ?>
 
@@ -128,7 +59,7 @@ $in_count = mysqli_fetch_assoc($run1);
                 <div class="page-header">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h3 class="page-title">Welcome ProjectK Admin !</h3>
+                            <h3 class="page-title">Welcome Admin !</h3>
                             
                         </div>
                     </div>
@@ -142,9 +73,11 @@ $in_count = mysqli_fetch_assoc($run1);
                           
                                 <div class="card-body">
                                     <div class="db-widgets d-flex justify-content-between align-items-center">
+                                        
                                         <div class="db-icon">
                                             <i class="fas fa-book-open"></i>
                                         </div>
+
                                         <div class="db-info">
                                             <h3><?php echo $out_count['ou']; ?></h3>
                                             <h6>Users count</h6>
@@ -157,8 +90,9 @@ $in_count = mysqli_fetch_assoc($run1);
 
                     <div class="col-xl-3 col-sm-6 col-12 d-flex">
                         <div class="card bg-ten w-100">
-                            <div class="card-body">
+                            <div class="card-body"><a href="monthwise_payments_list.php">
                                     <div class="db-widgets d-flex justify-content-between align-items-center">
+                                    
                                         <div class="db-icon">
                                             <i class="fas fa-clipboard-list"></i>
                                         </div>
@@ -166,7 +100,7 @@ $in_count = mysqli_fetch_assoc($run1);
                                             <h3><?php echo $in_count['in_count']; ?></h3>
                                             <h6>Payments count</h6>
                                         </div>
-                                    </div>
+                                    </div></a>
                                 
                             </div>
                         </div>
@@ -184,7 +118,7 @@ $in_count = mysqli_fetch_assoc($run1);
                             <div class="card-body">
                                 <div>
                                     <a href="user_registration.php" class="btn btn-primary">NEW USER REGISTRATION</a><br><br>
-                                    <a href="search-eop.php" class="btn btn-primary">EXISTING USER PAYMENT</a>
+                                    <a href="search-eop.php" class="btn btn-primary">Batch Wise User Details</a>
                                 </div>
                             </div>
                             <!-- <div class="card-body">
@@ -213,7 +147,7 @@ $in_count = mysqli_fetch_assoc($run1);
                             <div class="card-body">
                                 <a href="monthwise_payments_list.php" class="btn btn-primary">PAYMENTS LIST</a><br><br>
                                 
-                                <a href="search-pf.php" class="btn btn-primary">BATCH SLOTS</a>
+                                <a href="next_batch_slots.php" class="btn btn-primary">BATCH SLOTS</a>
                             </div>
                             <!-- <div class="card-body">
                            <a href="search-pf.php" class="btn btn-primary">PREGNANCY FORM</a>
@@ -234,7 +168,11 @@ $in_count = mysqli_fetch_assoc($run1);
 
             </div>
             <!-- /Page Wrapper -->
-
+                <!-- Footer -->
+				<!-- <footer>
+					<p>Copyright © 2022 Health 'N' Wealth.</p>					
+				</footer> -->
+				<!-- /Footer -->
         </div>
 </div>
         <!-- /Main Wrapper -->

@@ -6,28 +6,17 @@ if(isset($_POST['login']))
 {
 
  $password=$_POST['pass'];
-// htmlspecialchars($password);
-//  $query= "select sid,name from  staff  where spw='$password'";
-//  $result=mysqli_query($con,$query) or die (mysqli_error($con));
-//  $details=mysqli_fetch_assoc($result);
 
-//  $counter=mysqli_num_rows($result);
- 
 
     if($password=='admin')
     {
-    // $_SESSION['SID']=$details['sid'];
-    // $_SESSION['NAME']=$details['name'];
+  
     echo" <script>document.location='admin_dashboard.php'</script>";
     }
 
 
 
-//  else
-//  {
-//     echo "<script type='text/javascript'>alert('Inavalid Username or Password')</script>";
 
-//  }
 
 }
 
@@ -92,7 +81,11 @@ if(isset($_POST['login']))
             </div>
         </div>
         <!-- /Main Wrapper -->
-        
+        <!-- Footer -->
+				<!-- <footer>
+					<p>Copyright © 2022 Health 'N' Wealth.</p>					
+				</footer> -->
+				<!-- /Footer -->
         <!-- jQuery -->
         <script src="assets/js/jquery-3.6.0.min.js"></script>
         
